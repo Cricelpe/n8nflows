@@ -16,4 +16,4 @@ USER node
 VOLUME /data
 
 # Expone el puerto 8080, que es donde n8n se ejecuta por defecto
-EXPOSE 8080
+EXPOSE 5678
