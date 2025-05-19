@@ -1,0 +1,37 @@
+# Despliegue de N8N en Render con configuración de variables de entorno
+
+services:
+  - type: web_service
+    name: n8nflows
+    env: docker
+    plan: free
+    branch: main
+    # Ruta al Dockerfile en tu repo
+    dockerfilePath: Dockerfile
+    envVars:
+      - key: DB_POSTGRESDB_DATABASE
+        value: postgres_n8n_enrm
+      - key: DB_POSTGRESDB_HOST
+        value: dpg-dojo2b0d13ps73cn7mr0-a.oregon-postgres.render.com
+      - key: DB_POSTGRESDB_USER
+        value: postgres_n8n_enrm_user
+      - key: DB_POSTGRESDB_PASSWORD
+        value: WhWzeTM16U17y86M1iaE1sIqnBItdTRd
+      - key: DB_POSTGRESDB_PORT
+        value: "5432"
+      - key: DB_TYPE
+        value: postgresdb
+      - key: WEBHOOK_URL
+        value: https://n8nflows-lzv5.onrender.com
+      - key: PORT
+        value: "5678"
+      - key: N8N_BASIC_AUTH_ACTIVE
+        value: "true"
+      - key: N8N_BASIC_AUTH_USER
+        value: admin
+      - key: N8N_BASIC_AUTH_PASSWORD
+        value: 1234seguro
+      - key: N8N_USER_MANAGEMENT_DISABLED
+        value: "true"
+      - key: N8N_AUTH_EXCLUDE_ENDPOINTS
+        value: "/"
